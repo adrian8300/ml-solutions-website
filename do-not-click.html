@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="You were warned...">
+    <title>DO NOT CLICK - ML Solutions Consulting</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .secret-page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .warning-title {
+            font-size: 4rem;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, #ff0000 0%, #ff6b35 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 0 30px rgba(255, 0, 0, 0.8));
+            animation: warningPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes warningPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .joke-container {
+            background: var(--card-bg);
+            background-image: var(--gradient-card);
+            border: 2px solid var(--border-color);
+            border-radius: 20px;
+            padding: 3rem;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: var(--shadow-lg);
+            margin-top: 2rem;
+        }
+
+        .joke-question {
+            font-size: 1.8rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1.6;
+        }
+
+        .joke-answer {
+            font-size: 2rem;
+            font-weight: bold;
+            background: var(--gradient-tech);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 2rem;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.6));
+        }
+
+        .big-button {
+            padding: 20px 50px;
+            font-size: 1.5rem;
+            background: linear-gradient(135deg, #ff0000 0%, #ff6b35 100%);
+            color: white;
+            border: 3px solid #ff0000;
+            border-radius: 15px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.3s;
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.6), 0 0 60px rgba(255, 0, 0, 0.3);
+            animation: buttonShake 3s ease-in-out infinite;
+        }
+
+        .big-button:hover {
+            transform: scale(1.1) rotate(-2deg);
+            box-shadow: 0 0 50px rgba(255, 0, 0, 0.9), 0 0 100px rgba(255, 0, 0, 0.5);
+        }
+
+        @keyframes buttonShake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px) rotate(-1deg); }
+            75% { transform: translateX(5px) rotate(1deg); }
+        }
+
+        .reveal-button {
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            background: var(--gradient-tech);
+            color: var(--bg-dark);
+            border: 3px solid var(--primary-color);
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.3s;
+            box-shadow: var(--neon-cyan);
+            animation: revealPulse 2s ease-in-out infinite;
+        }
+
+        .reveal-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 40px rgba(0, 255, 255, 0.9), 0 0 80px rgba(255, 0, 255, 0.6);
+        }
+
+        @keyframes revealPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .back-link {
+            margin-top: 3rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .back-link:hover {
+            color: var(--primary-color);
+            text-shadow: var(--neon-cyan);
+        }
+    </style>
+</head>
+<body>
+    <div class="tech-particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">⚡ ML Solutions ⚡</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="do-not-click.html" class="active">DO NOT CLICK</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="secret-page">
+        <h1 class="warning-title">⚠️ WE WARNED YOU ⚠️</h1>
+
+        <div class="joke-container">
+            <div id="jokeQuestion" class="joke-question">Ready for a joke?</div>
+            <div id="jokeAnswer" class="joke-answer hidden"></div>
+
+            <button id="tellJokeBtn" class="big-button">TELL ME A JOKE</button>
+            <button id="revealBtn" class="reveal-button hidden">REVEAL ANSWER</button>
+            <button id="anotherBtn" class="reveal-button hidden">WOULD YOU LIKE ANOTHER JOKE?</button>
+        </div>
+
+        <a href="index.html" class="back-link">← Escape back to safety</a>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 ML Solutions Consulting. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        const jokeQuestions = [
+            "Why did Rachel cross the road?",
+            "What do you call Rachel when she's sleeping?",
+            "Why did Rachel go to school?",
+            "What's Rachel's favorite type of music?",
+            "Why did Rachel bring a ladder to the bar?",
+            "What did Rachel say to the mirror?",
+            "Why doesn't Rachel ever get lost?",
+            "What's Rachel's superpower?",
+            "Why did Rachel join the circus?",
+            "What do you get when Rachel tells a joke?",
+            "Why did Rachel become a chef?",
+            "What's Rachel's favorite exercise?",
+            "Why did Rachel go to the beach?",
+            "What does Rachel do on the weekend?",
+            "Why did Rachel learn to fly?"
+        ];
+
+        const animals = [
+            "unicorn", "dragon", "penguin", "platypus", "narwhal", "sloth", "octopus",
+            "llama", "axolotl", "capybara", "quokka", "red panda", "fennec fox",
+            "meerkat", "lemur", "pangolin", "sea otter", "flying squirrel", "peacock",
+            "flamingo", "koala", "sugar glider", "hedgehog", "chinchilla", "armadillo"
+        ];
+
+        let currentQuestion = "";
+        let currentAnimal = "";
+
+        const jokeQuestionEl = document.getElementById('jokeQuestion');
+        const jokeAnswerEl = document.getElementById('jokeAnswer');
+        const tellJokeBtn = document.getElementById('tellJokeBtn');
+        const revealBtn = document.getElementById('revealBtn');
+        const anotherBtn = document.getElementById('anotherBtn');
+
+        function getRandomItem(array) {
+            return array[Math.floor(Math.random() * array.length)];
+        }
+
+        function tellJoke() {
+            currentQuestion = getRandomItem(jokeQuestions);
+            currentAnimal = getRandomItem(animals);
+
+            jokeQuestionEl.textContent = currentQuestion;
+            jokeAnswerEl.classList.add('hidden');
+            tellJokeBtn.classList.add('hidden');
+            revealBtn.classList.remove('hidden');
+            anotherBtn.classList.add('hidden');
+        }
+
+        function revealAnswer() {
+            jokeAnswerEl.textContent = `Because Rachel is a ${currentAnimal}!`;
+            jokeAnswerEl.classList.remove('hidden');
+            revealBtn.classList.add('hidden');
+            anotherBtn.classList.remove('hidden');
+        }
+
+        function anotherJoke() {
+            tellJoke();
+        }
+
+        tellJokeBtn.addEventListener('click', tellJoke);
+        revealBtn.addEventListener('click', revealAnswer);
+        anotherBtn.addEventListener('click', anotherJoke);
+    </script>
+</body>
+</html>
