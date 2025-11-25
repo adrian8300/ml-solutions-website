@@ -21,13 +21,27 @@ document.addEventListener('DOMContentLoaded', function() {
     // The form action is set in contact.html to handle submissions
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
+        // Check if redirected back with success parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('success') === 'true') {
+            const formStatus = document.getElementById('formStatus');
+            if (formStatus) {
+                formStatus.className = 'form-status success';
+                formStatus.textContent = 'Thank you! Your message has been sent successfully. We\'ll get back to you within 24 hours.';
+                formStatus.style.display = 'block';
+
+                // Clear the URL parameter
+                window.history.replaceState({}, document.title, window.location.pathname);
+            }
+        }
+
         contactForm.addEventListener('submit', function() {
             const submitButton = contactForm.querySelector('button[type="submit"]');
             submitButton.disabled = true;
             submitButton.textContent = 'Sending...';
 
             // Form will submit normally to FormSubmit.co
-            // User will be redirected to FormSubmit's thank you page
+            // User will be redirected back with success parameter
         });
     }
 
