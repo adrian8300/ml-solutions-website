@@ -87,3 +87,15 @@ This is a static site with zero build tooling:
 - No transpilation or bundling
 - No preprocessors (Sass, TypeScript, etc.)
 - Direct file editing - changes are immediately live when deployed
+
+## IMPORTANT: Always Push Changes to Git
+**CRITICAL**: After making ANY changes to this project, you MUST immediately push them to git so they are deployed to GitHub Pages and instantly viewable.
+
+After completing any work:
+```bash
+git add .
+git commit -m "Description of changes"
+git push origin master
+```
+
+GitHub Pages automatically deploys from the master branch, so pushing changes makes them live immediately. Never leave changes uncommitted.
